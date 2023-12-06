@@ -10,7 +10,10 @@ function App() {
 
   return (
     <>
+    <div className="parent">
+
       <Todo/>
+    </div>
     </>
   );
 }
