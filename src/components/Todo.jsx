@@ -78,11 +78,11 @@ const Todo = () => {
             <div className="col m-2">
               {editIndex === index && editMode ? (
                 <button className="btn btn-primary" onClick={handleSave}>
-                  Save
+                  Saveit
                 </button>
               ) : (
                 <button className="btn btn-warning" onClick={() => handleEdit(index)}>
-                  Edit
+                  Editit
                 </button>
               )}
               <button className="btn btn-danger" onClick={() => handleDelete(index)}>
