@@ -1,22 +1,17 @@
 /* Todo.css */
 /* ... (existing styles) */
 
-/* Add box shadow and hover effect */
-.dropdown-menu {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow effect */
-  }
-  
-  .dropdown-item:hover {
-    background-color: #f8f9fa; /* Change background color on hover */
-    color: #000; /* Change text color on hover */
-  }
-  
-  /* Add box shadow and hover effect for table rows */
-  .table tbody tr {
-    transition: box-shadow 0.3s ease-in-out; /* Add transition effect */
-  }
-  
-  .table tbody tr:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Apply box shadow on hover */
-  }
-  
+/* Add glass effect to the container */
+.container {
+  backdrop-filter: blur(10px); /* Adds the frosted glass effect */
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust the background color's transparency */
+  border-radius: 10px; /* Adds a border radius */
+  padding: 20px; /* Add some padding for spacing */
+  width: 80%; /* Adjust the width */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Add shadow to the container */
+.container {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+}
