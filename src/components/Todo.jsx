@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaEdit, FaFilter, FaSave, FaTrash } from "react-icons/fa";
+import { FaEdit, FaFilter, FaMoon, FaSave, FaSun, FaTrash } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "./Todo.css";
@@ -156,8 +156,8 @@ const Todo = () => {
             checked={darkMode}
             onChange={handleDarkModeToggle}
           />
-          <label className="form-check-label ms-2" htmlFor="darkModeToggle">
-            Dark Mode
+         <label className="form-check-label ms-2" htmlFor="darkModeToggle">
+            {darkMode ? <FaMoon /> : <FaSun />}
           </label>
         </div>
       </div>

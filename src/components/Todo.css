@@ -20,5 +20,10 @@
 .night-mode {
   background-color: #834040; /* Example dark background color */
   color: #ffffff; /* Example text color */
-  /* Add any other styles for night mode here */
+  background-image: url("../assets/moon.jpg");
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  /* background-position: center; /* Center the image */
+  /* position: fixed; */ 
+  /* Other night mode styles */
 }
