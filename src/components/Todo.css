@@ -15,3 +15,10 @@
 .container {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
 }
+
+
+.night-mode {
+  background-color: #121212; /* Example dark background color */
+  color: #ffffff; /* Example text color */
+  /* Add any other styles for night mode here */
+}

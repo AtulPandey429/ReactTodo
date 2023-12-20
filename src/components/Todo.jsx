@@ -12,11 +12,15 @@ const Todo = () => {
   const [filter, setFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     fetchTodoData();
   }, []); // Fetch data when the component mounts
-
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode);
+    // You can perform other actions related to toggling dark mode here
+  };
   const fetchTodoData = async () => {
     try {
       const response = await fetch('https://jsonplaceholder.typicode.com/todos'); // Replace 'https://your-api-url' with your API endpoint
@@ -32,6 +36,14 @@ const Todo = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
   const handleAdd = () => {
@@ -126,21 +138,29 @@ const Todo = () => {
     return todos;
   };
 
-  const pageNumbers = () => {
-    const numbers = [];
-    for (let i = 1; i <= Math.ceil(todos.length / itemsPerPage); i++) {
-      numbers.push(i);
-    }
-    return numbers;
-  };
-
+  const totalPages = Math.ceil(filteredTodo().length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredTodo().slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <center>
-      <div className="container">
+      <div className={`container ${darkMode ? 'night-mode' : ''}`}>
+      <div className="d-flex justify-content-end mt-3">
+        {/* Dark mode toggle button */}
+        <div className="form-check form-switch">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="darkModeToggle"
+            checked={darkMode}
+            onChange={handleDarkModeToggle}
+          />
+          <label className="form-check-label ms-2" htmlFor="darkModeToggle">
+            Dark Mode
+          </label>
+        </div>
+      </div>
         <h1 className="text-center mb-5">Todo App</h1>
         <div className="input-group mb-3">
           <input
@@ -205,15 +225,25 @@ const Todo = () => {
           </tbody>
         </table>
 
-        <ul className="pagination">
-          {pageNumbers().map(number => (
-            <li key={number} className="page-item">
-              <button onClick={() => handlePageChange(number)} className="page-link">
-                {number}
-              </button>
-            </li>
-          ))}
-        </ul>
+       
+  <div className="d-flex justify-content-center align-items-center mt-4">
+          <button
+            className="btn btn-primary me-2"
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <span>Page {currentPage} of {totalPages}</span>
+          <button
+            className="btn btn-primary ms-2"
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+       
       </div>
     </center>
   );
