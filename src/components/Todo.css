@@ -18,12 +18,28 @@
 
 
 .night-mode {
-  background-color: #834040; /* Example dark background color */
-  color: #ffffff; /* Example text color */
+  background-color: #1f1d1d; /* Example dark background color */
+  color: #7a786e; /* Example text color */
   background-image: url("../assets/moon.jpg");
   background-size: cover; /* Cover the entire container */
   background-repeat: no-repeat; /* Prevent image repetition */
   /* background-position: center; /* Center the image */
   /* position: fixed; */ 
   /* Other night mode styles */
+}
+/* Define your CSS styles */
+
+/* Animation for the task */
+.task-fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

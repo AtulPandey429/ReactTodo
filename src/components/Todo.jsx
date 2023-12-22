@@ -86,7 +86,7 @@ const Todo = () => {
   }, [todos]);
 
   const renderTodos = (task, index) => (
-    <tr key={task.id}>
+    <tr key={task.id} className="task-fade-in">
       <td>
         {editIndex === index && editMode ? (
           <input
